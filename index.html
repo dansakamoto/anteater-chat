@@ -7,7 +7,14 @@
     <title>Anteater Chat</title>
   </head>
   <body>
-    <main id="container"></main>
+    <main style="display: flex">
+      <div id="divright" style="width: 50%">
+        <ul id="messages"></ul>
+        <form id="form" action="" style="width: 50%">
+          <input id="input" autocomplete="off" /><button>Send</button>
+        </form>
+      </div>
+    </main>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

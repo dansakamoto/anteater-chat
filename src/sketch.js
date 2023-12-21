@@ -1,9 +1,13 @@
 import "p5/lib/addons/p5.sound.js";
+import anteater01 from "./assets/images/anteater01.png";
+import anteater02 from "./assets/images/anteater02.png";
+import grocerystore from "./assets/images/grocerystore.png";
+import scremSound from "./assets/sounds/screm.mp3";
 
 let anteater, store, input, button, history;
 
 window.preload = () => {
-  store = loadImage("assets/images/grocerystore.png");
+  store = loadImage(grocerystore);
 };
 
 window.setup = () => {
@@ -53,9 +57,9 @@ window.reply = () => {
 
 class Anteater {
   constructor(x, y) {
-    this.bodyImg = loadImage("assets/images/anteater01.png");
-    this.mouthImg = loadImage("assets/images/anteater02.png");
-    this.screm = loadSound("assets/sounds/screm.mp3");
+    this.bodyImg = loadImage(anteater01);
+    this.mouthImg = loadImage(anteater02);
+    this.screm = loadSound(scremSound);
     this.mouthX = 21;
     this.mouthY = 67;
     this.posX = x;
@@ -91,3 +95,47 @@ class Anteater {
     pop();
   }
 }
+
+var form = document.getElementById("form");
+var msgInput = document.getElementById("input");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  if (msgInput.value) {
+    let adverbs = [
+      "with enthusiasm",
+      "irritably",
+      "delightedly",
+      "quietly",
+      "suspiciously",
+      "angrily",
+      "with a sigh",
+      "suggestively",
+      "and a little yarn falls out of its mouth",
+    ];
+
+    let msg = msgInput.value;
+
+    console.log(msg);
+
+    let question = ask(msg);
+    messages.appendChild(question);
+
+    window.scrollTo(0, document.body.scrollHeight);
+    msgInput.value = "";
+
+    // scream = reply();
+    // messages.appendChild(scream);
+
+    reply();
+
+    var screm = document.createElement("li");
+    let randNum = floor(random(adverbs.length));
+    console.log(randNum);
+    screm.textContent = "anteater screams " + adverbs[randNum];
+    messages.appendChild(screm);
+
+    // ask(); -- handles user
+    // screm(); -- handles anteater
+  }
+});
