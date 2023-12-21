@@ -1,4 +1,4 @@
-import "p5/lib/addons/p5.sound";
+import "p5/lib/addons/p5.sound.js";
 
 let anteater, store, input, button, history;
 

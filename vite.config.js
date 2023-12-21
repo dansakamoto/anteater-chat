@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     inject({
-      p5: "P5",
+      p5: "p5",
     }),
   ],
 });
