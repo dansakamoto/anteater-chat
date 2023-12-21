@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <main style="display: flex">
+      <div id="divright" style="width: 50%">
+        <ul id="messages"></ul>
+        <form id="form" action="" style="width: 50%">
+          <input id="input" autocomplete="off" /><button>Send</button>
+        </form>
+      </div>
+    </main>
+
+    <script>
+      var form = document.getElementById("form");
+      var msgInput = document.getElementById("input");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (msgInput.value) {
+          let adverbs = [
+            "with enthusiasm",
+            "irritably",
+            "delightedly",
+            "quietly",
+            "suspiciously",
+            "angrily",
+            "with a sigh",
+            "suggestively",
+            "and a little yarn falls out of its mouth",
+          ];
+
+          let msg = msgInput.value;
+
+          console.log(msg);
+
+          question = ask(msg);
+          messages.appendChild(question);
+
+          window.scrollTo(0, document.body.scrollHeight);
+          msgInput.value = "";
+
+          // scream = reply();
+          // messages.appendChild(scream);
+
+          reply();
+
+          var screm = document.createElement("li");
+          let randNum = floor(random(adverbs.length));
+          console.log(randNum);
+          screm.textContent = "anteater screams " + adverbs[randNum];
+          messages.appendChild(screm);
+
+          // ask(); -- handles user
+          // screm(); -- handles anteater
+        }
+      });
+    </script>
+  </body>
+</html>
