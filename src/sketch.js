@@ -1,14 +1,14 @@
-import 'p5/lib/addons/p5.sound.js'
-import grocerystore from './assets/images/grocerystore.png'
-import anteater01 from './assets/images/anteater01.png'
-import anteater02 from './assets/images/anteater02.png'
-import scremSound from './assets/sounds/screm.mp3'
+//import 'p5/lib/addons/p5.sound.js'
+import grocerystore from "./assets/images/grocerystore.png";
+import anteater01 from "./assets/images/anteater01.png";
+import anteater02 from "./assets/images/anteater02.png";
+//import scremSound from "./assets/sounds/screm.mp3";
 
 let anteater, store, input, button, history;
 
 window.preload = () => {
   store = loadImage(grocerystore);
-}
+};
 
 window.setup = () => {
   createCanvas(windowWidth / 2, windowHeight);
@@ -27,11 +27,11 @@ window.setup = () => {
   history = "";
 
   input.value("");
-}
+};
 
 window.windowResized = () => {
   resizeCanvas(windowWidth / 2, windowHeight);
-}
+};
 
 window.draw = () => {
   background(220);
@@ -39,7 +39,7 @@ window.draw = () => {
   anteater.draw();
 
   text(history, input.x, input.y + 50, 400);
-}
+};
 
 function ask(msg) {
   var item = document.createElement("li");
@@ -52,14 +52,14 @@ function ask(msg) {
 
 function reply() {
   // handles anteater
-  anteater.screm.play();
+  //anteater.screm.play();
 }
 
 class Anteater {
   constructor(x, y) {
     this.bodyImg = loadImage(anteater01);
     this.mouthImg = loadImage(anteater02);
-    this.screm = loadSound(scremSound);
+    //this.screm = loadSound(scremSound);
     this.mouthX = 21;
     this.mouthY = 67;
     this.posX = x;
@@ -74,7 +74,7 @@ class Anteater {
   }
 
   draw() {
-    this.mouthOpen = this.screm.isPlaying();
+    //this.mouthOpen = this.screm.isPlaying();
     push();
     translate(this.posX, this.posY);
     image(this.bodyImg, 0, 0);
