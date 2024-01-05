@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="utf-8" />
   </head>
   <body>
+    <div id="root"></div>
     <main style="display: flex">
       <div id="divright" style="width: 50%">
         <ul id="messages"></ul>
@@ -15,8 +13,6 @@
         </form>
       </div>
     </main>
-
-    <script src="sketch.js"></script>
 
     <script>
       var form = document.getElementById("form");
@@ -63,5 +59,6 @@
         }
       });
     </script>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
