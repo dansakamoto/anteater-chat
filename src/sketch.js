@@ -1,4 +1,3 @@
-//import 'p5/lib/addons/p5.sound.js'
 import grocerystore from "./assets/images/grocerystore.png";
 import anteater01 from "./assets/images/anteater01.png";
 import anteater02 from "./assets/images/anteater02.png";
