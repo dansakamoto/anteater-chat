@@ -1,59 +1,45 @@
-let anteater, store, input, button, history;
+import grocerystore from "./assets/images/grocerystore.png";
+import anteater01 from "./assets/images/anteater01.png";
+import anteater02 from "./assets/images/anteater02.png";
+import scremSound from "./assets/sounds/screm.mp3";
 
-function preload() {
-  store = loadImage("assets/images/grocerystore.png");
-}
+let store;
 
-function setup() {
+window.preload = () => {
+  store = loadImage(grocerystore);
+};
+
+window.setup = () => {
   createCanvas(windowWidth / 2, windowHeight);
-  anteater = new Anteater(50, 50);
+  window.anteater = new Anteater(50, 50);
+};
 
-  textSize(windowWidth / 45);
-  textWrap(WORD);
-
-  input = createInput();
-  input.position(800, 50);
-
-  button = createButton("Ask");
-  button.position(input.x + input.width + 5, input.y);
-  button.mousePressed(ask);
-
-  history = "";
-
-  input.value("");
-}
-
-function windowResized() {
+window.windowResized = () => {
   resizeCanvas(windowWidth / 2, windowHeight);
-}
+};
 
-function draw() {
+window.draw = () => {
   background(220);
   image(store, 0, 0);
-  anteater.draw();
+  window.anteater.draw();
+};
 
-  text(history, input.x, input.y + 50, 400);
-}
-
-function ask(msg) {
+window.ask = (msg) => {
   var item = document.createElement("li");
   item.textContent = msg;
   return item;
-  // const question = input.value();
-  // history = question + "\n" + history;
-  // input.value('');
-}
+};
 
-function reply() {
+window.reply = () => {
   // handles anteater
-  anteater.screm.play();
-}
+  window.anteater.screm.play();
+};
 
 class Anteater {
   constructor(x, y) {
-    this.bodyImg = loadImage("assets/images/anteater01.png");
-    this.mouthImg = loadImage("assets/images/anteater02.png");
-    this.screm = loadSound("assets/sounds/screm.mp3");
+    this.bodyImg = loadImage(anteater01);
+    this.mouthImg = loadImage(anteater02);
+    this.screm = loadSound(scremSound);
     this.mouthX = 21;
     this.mouthY = 67;
     this.posX = x;
