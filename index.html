@@ -39,7 +39,7 @@
 
           console.log(msg);
 
-          question = ask(msg);
+          question = window.ask(msg);
           messages.appendChild(question);
 
           window.scrollTo(0, document.body.scrollHeight);
@@ -48,7 +48,7 @@
           // scream = reply();
           // messages.appendChild(scream);
 
-          reply();
+          window.reply();
 
           var screm = document.createElement("li");
           let randNum = floor(random(adverbs.length));
