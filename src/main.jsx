@@ -4,6 +4,8 @@
 import "./App.css";
 import "./index.css";
 import "./style.css";
+
+import "./chat.js";
 import "./sketch.js";
 
 /*

@@ -15,51 +15,6 @@
       </div>
     </main>
 
-    <script>
-      var form = document.getElementById("form");
-      var msgInput = document.getElementById("input");
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (msgInput.value) {
-          let adverbs = [
-            "with enthusiasm",
-            "irritably",
-            "delightedly",
-            "quietly",
-            "suspiciously",
-            "angrily",
-            "with a sigh",
-            "suggestively",
-            "and a little yarn falls out of its mouth",
-          ];
-
-          let msg = msgInput.value;
-
-          console.log(msg);
-
-          question = window.ask(msg);
-          messages.appendChild(question);
-
-          window.scrollTo(0, document.body.scrollHeight);
-          msgInput.value = "";
-
-          // scream = reply();
-          // messages.appendChild(scream);
-
-          window.reply();
-
-          var screm = document.createElement("li");
-          let randNum = floor(random(adverbs.length));
-          console.log(randNum);
-          screm.textContent = "anteater screams " + adverbs[randNum];
-          messages.appendChild(screm);
-
-          // ask(); -- handles user
-          // screm(); -- handles anteater
-        }
-      });
-    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

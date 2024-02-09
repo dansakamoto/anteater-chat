@@ -1,8 +1,14 @@
+// switch away from grocery store to an array of locations?
+// minimally, different location
+// rename to "background" or "location" or similar
 import grocerystore from "./assets/images/grocerystore.png";
+// rename to better indicate anteater parts ("anteaterBody" & "anteaterJaw" ?)
 import anteater01 from "./assets/images/anteater01.png";
 import anteater02 from "./assets/images/anteater02.png";
+// possible array of different sound files
 import scremSound from "./assets/sounds/screm.mp3";
 
+// rename to "background" or "location" or similar
 let store;
 
 window.preload = () => {
@@ -10,32 +16,37 @@ window.preload = () => {
 };
 
 window.setup = () => {
+	// replace number with variable
   createCanvas(windowWidth / 2, windowHeight);
+	// does this anteater still need to be global? investigate!
+	// replace anteater x,y with variables, define elsewhere
   window.anteater = new Anteater(50, 50);
 };
 
 window.windowResized = () => {
+	// replace number with variable
   resizeCanvas(windowWidth / 2, windowHeight);
 };
 
 window.draw = () => {
+	// replace number with variable
   background(220);
   image(store, 0, 0);
   window.anteater.draw();
 };
 
-window.ask = (msg) => {
-  var item = document.createElement("li");
-  item.textContent = msg;
-  return item;
-};
-
-window.reply = () => {
+// move adverbs from chat.js, have reply() handle choosing, return adverb?
+// Also, move all anteater-related items/function/etc from chat.js?
+// -> are these tightly-coupled (animation/sound + anteater's chat actions)?
+export function reply() {
   // handles anteater
   window.anteater.screm.play();
 };
 
 class Anteater {
+	// replace number with variable
+	// possibly subdivide mouth, body, screm concerns?
+	// sub-objects, or just re-order the list?
   constructor(x, y) {
     this.bodyImg = loadImage(anteater01);
     this.mouthImg = loadImage(anteater02);
@@ -70,7 +81,6 @@ class Anteater {
       rotate(this.mouthMin);
     }
     image(this.mouthImg, -this.mouthAnchorX, -this.mouthAnchorY);
-    //ellipse(0,0,20)
     pop();
     pop();
   }
