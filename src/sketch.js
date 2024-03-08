@@ -1,9 +1,14 @@
 // add different locations
 import grocerystore from "./assets/images/grocerystore.png";
-// rename to better indicate anteater parts ("anteaterBody" & "anteaterJaw" ?)
-import anteater01 from "./assets/images/anteater01.png";
-import anteater02 from "./assets/images/anteater02.png";
+
+import anteaterBody from "./assets/images/anteaterBody.png";
+import anteaterJaw from "./assets/images/anteaterJaw.png";
 // possible array of different sound files
+// - could tie the sounds to adverbs (maybe 1-10 sounds/adverb, keeping just 1 sound for yarn, many for others)
+// - could create a bank of full phrases, rather than just adverbs
+// - could keep sound separate from adverbs -- randomize except for yarn?
+// - also consider future of yarn -> change in visual AND change in sound
+// - also consider future of use of chatGPT (randomizer of response via ChatGPT vs pre-programmed phrases)
 import scremSound from "./assets/sounds/screm.mp3";
 
 let setting, currentSetting;
@@ -33,12 +38,11 @@ window.windowResized = () => {
 
 window.draw = () => {
   // replace number with variable
-  background(220);
+  // background(220);
   image(currentSetting.background, 0, 0);
   window.anteater.draw();
 };
 
-// move adverbs from chat.js, have reply() handle choosing, return adverb?
 // Also, move all anteater-related items/function/etc from chat.js?
 // -> are these tightly-coupled (animation/sound + anteater's chat actions)?
 export function reply() {
@@ -66,8 +70,8 @@ class Anteater {
   // possibly subdivide mouth, body, screm concerns?
   // sub-objects, or just re-order the list?
   constructor(x, y) {
-    this.bodyImg = loadImage(anteater01);
-    this.mouthImg = loadImage(anteater02);
+    this.bodyImg = loadImage(anteaterBody);
+    this.mouthImg = loadImage(anteaterJaw);
     this.screm = loadSound(scremSound);
     this.mouthX = 21;
     this.mouthY = 67;
